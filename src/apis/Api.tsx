@@ -26,9 +26,20 @@ const getProjectsForUsers = async (): Promise<IProject[]> => {
     }
 };
 
+const sendLoginRequest = async (data: any): Promise<any> => {
+    try {
+        console.log(data);
+        const result = await axios.post(`${BASE_URL}/login`, data);
+        return result.data;
 
+    } catch (err: any) {
+        console.log(err);
+        return {};
+    }
+};
 
 export {
     sendRequestForProjects,
-    getProjectsForUsers
+    getProjectsForUsers,
+    sendLoginRequest
 }
